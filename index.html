@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dws_Website_Entwurf_Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href=" http://fonts.googleapis.com/css?family=Droid+Sans"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#ed7f00",
+              main_hover: "#e3005d",
+            },
+            spacing: {
+              section: "6.25rem",
+            },
+            fontSize: {
+              h1: ["2.1rem", "2.7rem"],
+              h2: ["1.65rem", "2.3rem"],
+              h3: ["1.25rem", "1.9rem"],
+              footer: ["0.7rem", "1.1rem"],
+            },
+            borderRadius: {
+              "4xl": "2.5rem",
+              "5xl": "3.5rem",
+              "6xl": "5rem",
+            },
+            translate: {
+              left: "-100%",
+            },
+          },
+        },
+        plugins: [
+          function ({ addUtilities }) {
+            addUtilities({
+              ".mask1": {
+                "-webkit-mask-image": "url('./assets/d_image_frame.svg')",
+                "mask-image": "url('./assets/d_image_frame.svg')",
+                "-webkit-mask-size": "70%",
+                "mask-size": "70%",
+                "-webkit-mask-repeat": "no-repeat",
+                "mask-repeat": "no-repeat",
+              },
+            });
+          },
+        ],
+      };
+    </script>
+    <style>
+      @layer base {
+        html {
+          font-size: 24px;
+        }
+        @font-face {
+          font-family: "PlusJakarta";
+          src: url("./assets/Plus_Jakarta_Sans/static/PlusJakartaSans-VariableFont_wght.ttf")
+            format("truetype");
+          font-weight: normal;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: "PlusJakarta-Bold";
+          src: url("./assets/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf")
+            format("truetype");
+          font-weight: Bold;
+          font-style: normal;
+        }
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden font-['PlusJakarta']">
+    <div
+      class="flex flex-wrap justify-center pt-8 text-base/6 text-white bg-gradient-to-b from-pink-700 from-10% via-yellow-500 via-50% to-pink-700 to-90%"
+    >
+      <header
+        class="w-11/12 h-14 sm:container flex justify-between items-center"
+      >
+        <div class="h-full">
+          <img
+            class="w-auto h-full"
+            src="./assets/dws_logo_white_200x86px.svg"
+            alt="dws_logo_white_200x86px"
+          />
+        </div>
+        <div class="w-11 h-7">
+          <img
+            class="w-full h-full"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Hamburger_icon_white.svg/120px-Hamburger_icon_white.svg.png?20190820131613"
+            alt=""
+          />
+        </div>
+      </header>
+
+      <main class="w-11/12 sm:container">
+        <section
+          id="section1"
+          class="grid grid-cols-1 gap-5 md:grid-cols-3 py-10 sm:py-16 md:py-section"
+        >
+          <div class="md:col-span-1">
+            <h1
+              id="slide-in-left"
+              class="font-bold text-h1 font-['PlusJakarta-Bold'] pb-6 opacity-0 transform translate-x-left transition-[transform,opacity] duration-500 ease-linear"
+            >
+              Gemeinsam in die digitale Zukunft der Versorgung
+            </h1>
+            <button
+              class="bg-white rounded-3xl font-bold whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300 mt-0.5 p-0.5"
+            >
+              <span
+                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent px-2"
+                >unsere Mission</span
+              >
+            </button>
+          </div>
+          <div class="md:col-span-2">
+            <img
+              src="./assets/animation-placeholder.png"
+              alt="Gemeinsam in die digitale Zukunft der Versorgung"
+            />
+          </div>
+        </section>
+        <section
+          id="section2"
+          class="grid grid-cols-1 gap-5 content-center md:grid-cols-2 py-10 sm:py-16 md:py-section"
+        >
+          <div class="content-center mask1">
+            <img
+              src="./assets/iStock-1249572139_AleksandarNakic.jpg"
+              alt="Gemeinsam in die digitale Zukunft der Versorgung"
+            />
+          </div>
+          <div class="content-center">
+            <h2
+              id="slide-in-left"
+              class="font-bold text-h2 font-['PlusJakarta-Bold'] opacity-0 transform translate-x-left transition-[transform,opacity] duration-500 ease-linear"
+            >
+              Neue Lösungen für eine sich verändernde Welt
+            </h2>
+            <div
+              id="slide-in-right"
+              class="pt-5 pb-6 opacity-0 transform translate-x-full transition-[transform,opacity] duration-500 ease-linear"
+            >
+              Wir sammeln und setzen Daten zur Generierung und Realisierung von
+              Lösungen auf allen Gebieten der kommunalen Ver- und Entsorgung in
+              wert.
+            </div>
+            <button
+              class="bg-white rounded-3xl font-bold whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300 mt-0.5 p-0.5"
+            >
+              <span
+                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent px-2"
+              >
+                unsere Leistungen
+              </span>
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <section
+        id="section3"
+        class="flex flex-wrap justify-center text-center bg-gradient-to-b from-pink-700 from-10% to-yellow-500 to-90% py-10 sm:py-16 md:py-section rounded-b-3xl sm:rounded-b-4xl lg:rounded-b-5xl"
+      >
+        <div
+          class="w-11/12 sm:container sm:grid sm:grid-cols-6 text-white pb-16"
+        >
+          <h2
+            id="slide-in-left"
+            class="col-start-2 col-span-4 font-bold text-h2 font-['PlusJakarta-Bold'] pb-5 opacity-0 transform translate-x-left transition-[transform,opacity] duration-500 ease-linear"
+          >
+            Werden Sie Teil der Gemeinschaft
+          </h2>
+          <div
+            id="slide-in-right"
+            class="col-start-2 col-span-4 pb-6 opacity-0 transform translate-x-full transition-[transform,opacity] duration-500 ease-linear"
+          >
+            Das digitalwerk saar sorgt in der Region SarLorLux als eine digitale
+            kommunale Solidargemeinschaft für smarte (Energie-)Versorgung.<br />Wir
+            sind für jeden ofen, der mitmachen möchte.
+          </div>
+          <div class="col-start-2 col-span-4">
+            <button
+              class="bg-white rounded-3xl font-bold whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300 m-0.5 p-0.5"
+            >
+              <span
+                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent px-2"
+              >
+                Kontakt
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="w-11/12 sm:container items-center bg-white p-2 sm:p-8 rounded-3xl sm:rounded-4xl lg:rounded-5xl"
+        >
+          <div class="col-start-1 col-span-12 text-black p-0.5"></div>
+          <h3
+            class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent font-bold text-h3 font-['PlusJakarta-Bold']"
+          >
+            Eine Initiative von
+          </h3>
+          <div class="grid grid-cols-12 gap-5">
+            <div
+              class="col-start-2 col-end-12 grid grid-cols-5 gap-5 items-center"
+            >
+              <img
+                class="col-span-1"
+                src="./assets/kew_logo.svg"
+                alt="kew_logo"
+              />
+              <img
+                class="col-span-1"
+                src="./assets/swsls_logo.svg"
+                alt="swsls_logo"
+              />
+              <img
+                class="col-span-1"
+                src="./assets/logo_stadtwerke_dillingen.png"
+                alt="logo_stadtwerke_dillingen"
+              />
+              <img
+                class="col-span-1"
+                src="./assets/logo_stadtwerke_merzig.png"
+                alt="logo_stadtwerke_merzig"
+              />
+              <img
+                class="col-span-1"
+                src="./assets/logo_stadtwerke_st_wendel1.png"
+                alt="logo_stadtwerke_st_wendel"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="footer flex flex-wrap justify-center text-main text-footer py-3"
+      >
+        <div
+          class="w-11/12 sm:container flex flex-col py-0.5 lg:flex-row justify-between"
+        >
+          <div class="flex flex-wrap justify-between sm:flex-nowrap">
+            <div class="flex flex-row h-12 my-3">
+              <span class="w-1 h-full bg-main rounded-md"></span>
+              <div class="flex flex-col pl-3 pr-8">
+                <span class="cursor-pointer hover:text-main_hover">Home</span>
+                <span class="cursor-pointer hover:text-main_hover"
+                  >Leistungen</span
+                >
+                <span class="cursor-pointer hover:text-main_hover"
+                  >Mission</span
+                >
+              </div>
+            </div>
+            <div class="flex flex-row h-12 my-3">
+              <span class="w-1 h-full bg-main rounded-md"></span>
+              <div class="flex flex-col pl-3 pr-8">
+                <span class="cursor-pointer hover:text-main_hover"
+                  >Partner</span
+                >
+                <span class="cursor-pointer hover:text-main_hover"
+                  >Kontakt</span
+                >
+              </div>
+            </div>
+            <div class="flex flex-row h-12 my-3">
+              <span class="w-1 h-full bg-main rounded-md"></span>
+              <div class="flex flex-col pl-3 pr-8">
+                <span class="cursor-pointer hover:text-main_hover"
+                  >Impressum</span
+                >
+                <span class="cursor-pointer hover:text-main_hover"
+                  >Datenschutz</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-between sm:flex-nowrap">
+            <div class="flex flex-row h-12 my-3">
+              <span class="w-1 h-full bg-main rounded-md"></span>
+              <div class="flex flex-col pl-3 pr-8">
+                <span class="cursor-pointer hover:text-main_hover"
+                  >digitalwerk saar GmbH</span
+                >
+                <span class="cursor-pointer hover:text-main_hover"
+                  >Holtzendorferstrasse 12</span
+                >
+                <span class="cursor-pointer hover:text-main_hover"
+                  >66740 Saarlouis</span
+                >
+              </div>
+            </div>
+            <img
+              class="h-12 my-3"
+              src="./assets/dws_logo_footer__150x68px.svg"
+              alt="dws_logo_footer"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const headlineElements = document.querySelectorAll("#slide-in-left");
+        const textElements = document.querySelectorAll("#slide-in-right");
+
+        function changeClass(func, element, classNameList) {
+          if (func === "add") {
+            for (let clasName of classNameList) {
+              element.classList.add(clasName);
+            }
+          } else if (func === "remove") {
+            for (let clasName of classNameList) {
+              element.classList.remove(clasName);
+            }
+          }
+        }
+        function checkSlide() {
+          headlineElements.forEach((element) => {
+            const slideInAt =
+              window.scrollY + window.innerHeight - element.clientHeight;
+            const isHalfShown = slideInAt > element.offsetTop;
+            const isNotScrolledPast =
+              window.scrollY < element.offsetTop + element.clientHeight;
+
+            if (isHalfShown && isNotScrolledPast) {
+              changeClass("add", element, [
+                "opacity-100",
+                "transform",
+                "translate-x-0",
+              ]);
+            } else {
+              changeClass("remove", element, [
+                "opacity-100",
+                "transform",
+                "translate-x-0",
+              ]);
+            }
+          });
+
+          textElements.forEach((element) => {
+            const slideInAt =
+              window.scrollY + window.innerHeight - element.clientHeight;
+            const isHalfShown = slideInAt > element.offsetTop;
+            const isNotScrolledPast =
+              window.scrollY < element.offsetTop + element.clientHeight;
+
+            if (isHalfShown && isNotScrolledPast) {
+              changeClass("add", element, [
+                "opacity-100",
+                "transform",
+                "translate-x-0",
+              ]);
+            } else {
+              changeClass("remove", element, [
+                "opacity-100",
+                "transform",
+                "translate-x-0",
+              ]);
+            }
+          });
+        }
+
+        window.addEventListener("scroll", checkSlide);
+        checkSlide(); // Initial check
+      });
+    </script>
+  </body>
+</html>
