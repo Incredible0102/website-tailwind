@@ -8,37 +8,53 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link
-      href=" http://fonts.googleapis.com/css?family=Droid+Sans"
-      rel="stylesheet"
-      type="text/css"
-    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            screens: {
+              ss: "481px",
+            },
             colors: {
               main: "#ed7f00",
               main_hover: "#e3005d",
             },
             spacing: {
-              section: "6.25rem",
+              bnt: "0.3rem",
+              bnb: "0.7rem",
+              ss: "0.9rem",
+              sm: "3rem",
+              s3: "1.7rem",
+              s4: "2.2rem",
+              s5: "2.8rem",
+              s10: "5.6rem",
+              s15: "8.3rem",
+              logomax: "18.9rem",
             },
             fontSize: {
-              h1: ["2.1rem", "2.7rem"],
-              h2: ["1.65rem", "2.3rem"],
-              h3: ["1.25rem", "1.9rem"],
-              footer: ["0.7rem", "1.1rem"],
+              h1: ["2.7rem", "3.6rem"],
+              h2: ["2.2rem", "3.1rem"],
+              h3: ["1.7rem", "2.5rem"],
+              footer: ["0.9rem", "1.3rem"],
+              teaser: ["1.3rem", "2rem"],
             },
             borderRadius: {
-              "4xl": "2.5rem",
-              "5xl": "3.5rem",
-              "6xl": "5rem",
+              "4xl": "2rem",
+              "5xl": "10rem",
             },
             translate: {
               left: "-100%",
             },
+            animation: {
+              fade: "fadeOut 0.5s ease-in-out",
+            },
+            keyframes: (theme) => ({
+              fadeOut: {
+                "0%": { backgroundColor: "rgba(0,0,0,0)" },
+                "100%": { backgroundColor: "rgba(0,0,0,0.5)" },
+              },
+            }),
           },
         },
         plugins: [
@@ -60,7 +76,9 @@
     <style>
       @layer base {
         html {
-          font-size: 24px;
+          font-size: 18px;
+          line-height: 28px;
+          overflow-x: hidden;
         }
         @font-face {
           font-family: "PlusJakarta";
@@ -79,12 +97,12 @@
       }
     </style>
   </head>
-  <body class="overflow-x-hidden font-['PlusJakarta']">
+  <body class="h-screen overflow-x-hidden font-['PlusJakarta']">
     <div
-      class="flex flex-wrap justify-center pt-8 text-base/6 text-white bg-gradient-to-b from-pink-700 from-10% via-yellow-500 via-50% to-pink-700 to-90%"
+      class="flex flex-wrap justify-center text-white bg-gradient-to-b from-pink-700 from-10% via-yellow-500 via-50% to-pink-700 to-90% pt-8"
     >
       <header
-        class="w-11/12 h-14 sm:container flex justify-between items-center"
+        class="h-14 container px-ss md:px-sm flex justify-between items-center"
       >
         <div class="h-full">
           <img
@@ -93,32 +111,245 @@
             alt="dws_logo_white_200x86px"
           />
         </div>
-        <div class="w-11 h-7">
-          <img
-            class="w-full h-full"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Hamburger_icon_white.svg/120px-Hamburger_icon_white.svg.png?20190820131613"
-            alt=""
-          />
+
+        <div class="group w-10 h-full relative cursor-pointer">
+          <label class="z-40 cursor-pointer px-3 py-6" for="side-menu">
+            <input class="peer hidden" type="checkbox" id="side-menu" />
+            <div
+              class="relative z-50 block h-1 w-full bg-white rounded-3xl transform translate-y-1/2 content-[''] before:absolute before:top-2 before:z-50 before:block before:h-full before:w-full before:bg-white before:rounded-3xl before:transition-all before:duration-200 before:ease-out before:content-[''] after:absolute after:right-0 after:bottom-2 after:block after:h-full after:w-full after:bg-white after:rounded-3xl after:transition-all after:duration-200 after:ease-out after:content-[''] peer-checked:bg-transparent before:peer-checked:top-0 before:peer-checked:bg-gradient-to-r from-yellow-500 to-pink-700 before:peer-checked:w-full before:peer-checked:rotate-45 before:peer-checked:transform after:peer-checked:bottom-0 after:peer-checked:bg-gradient-to-r from-yellow-500 to-pink-700 after:peer-checked:w-full after:peer-checked:-rotate-45 after:peer-checked:transform"
+            ></div>
+            <div
+              class="absolute bottom-1/2 right-1/2 w-0 h-0 rounded-full bg-white opacity-0 transform translate-x-1/2 translate-y-1/2 group-hover:w-14 group-hover:h-14 group-hover:opacity-50 transition-[width,height,opacity]"
+            ></div>
+            <div
+              class="fixed bg-black bg-opacity-50 inset-0 z-40 hidden h-full w-full bg-black/50 backdrop-blur-sm peer-checked:block peer-checked:animate-fade"
+            >
+              &nbsp;
+            </div>
+            <div
+              class="fixed top-0 right-0 z-40 h-full w-full translate-x-full overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0"
+            >
+              <div
+                class="float-right min-h-full min-w-full sm:min-w-80 bg-white px-6 pt-20 shadow-2xl"
+              >
+                <menu>
+                  <button
+                    class="sss flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >Button 1</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >Button 2</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >Button 3</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >Button 4</span
+                    >
+                  </button>
+                  <!-- more buttons -->
+                  <!-- <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button>
+                  <button
+                    class="flex justify-center items-center my-4 px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
+                      >unsere Mission</span
+                    >
+                  </button> -->
+                </menu>
+              </div>
+            </div>
+          </label>
         </div>
       </header>
 
-      <main class="w-11/12 sm:container">
+      <main class="container px-ss md:px-sm">
         <section
           id="section1"
-          class="grid grid-cols-1 gap-5 md:grid-cols-3 py-10 sm:py-16 md:py-section"
+          class="grid grid-cols-1 gap-5 md:grid-cols-3 py-s15"
         >
           <div class="md:col-span-1">
             <h1
               id="slide-in-left"
-              class="font-bold text-h1 font-['PlusJakarta-Bold'] pb-6 opacity-0 transform translate-x-left transition-[transform,opacity] duration-500 ease-linear"
+              class="font-bold text-h1 font-['PlusJakarta-Bold'] opacity-0 transform translate-x-left transition-[transform,opacity] duration-500 ease-linear pb-s4"
             >
               Gemeinsam in die digitale Zukunft der Versorgung
             </h1>
             <button
-              class="bg-white rounded-3xl font-bold whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300 mt-0.5 p-0.5"
+              class="flex justify-center items-center px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
             >
               <span
-                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent px-2"
+                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
                 >unsere Mission</span
               >
             </button>
@@ -132,7 +363,7 @@
         </section>
         <section
           id="section2"
-          class="grid grid-cols-1 gap-5 content-center md:grid-cols-2 py-10 sm:py-16 md:py-section"
+          class="grid grid-cols-1 gap-5 content-center md:grid-cols-2 py-s15"
         >
           <div class="content-center">
             <div class="mask1">
@@ -151,17 +382,17 @@
             </h2>
             <div
               id="slide-in-right"
-              class="pt-5 pb-6 opacity-0 transform translate-x-full transition-[transform,opacity] duration-500 ease-linear"
+              class="text-teaser opacity-0 transform translate-x-full transition-[transform,opacity] duration-500 ease-linear pt-s3 pb-s4"
             >
               Wir sammeln und setzen Daten zur Generierung und Realisierung von
               Lösungen auf allen Gebieten der kommunalen Ver- und Entsorgung in
               wert.
             </div>
             <button
-              class="bg-white rounded-3xl font-bold whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300 mt-0.5 p-0.5"
+              class="flex justify-center items-center px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
             >
               <span
-                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent px-2"
+                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
               >
                 unsere Leistungen
               </span>
@@ -173,31 +404,29 @@
     <footer>
       <section
         id="section3"
-        class="flex flex-wrap justify-center text-center bg-gradient-to-b from-pink-700 from-10% to-yellow-500 to-90% py-10 sm:py-16 md:py-section rounded-b-3xl sm:rounded-b-4xl lg:rounded-b-5xl"
+        class="flex flex-wrap justify-center text-center bg-gradient-to-b from-pink-700 from-10% to-yellow-500 to-90% rounded-b-4xl md:rounded-b-5xl py-s15 px-ss"
       >
-        <div
-          class="w-11/12 sm:container sm:grid sm:grid-cols-6 text-white pb-16"
-        >
+        <div class="container md:px-sm sm:grid sm:grid-cols-6 text-white">
           <h2
             id="slide-in-left"
-            class="col-start-2 col-span-4 font-bold text-h2 font-['PlusJakarta-Bold'] pb-5 opacity-0 transform translate-x-left transition-[transform,opacity] duration-500 ease-linear"
+            class="col-start-2 col-span-4 font-bold text-h2 font-['PlusJakarta-Bold'] opacity-0 transform translate-x-left transition-[transform,opacity] duration-500 ease-linear"
           >
             Werden Sie Teil der Gemeinschaft
           </h2>
           <div
             id="slide-in-right"
-            class="col-start-2 col-span-4 pb-6 opacity-0 transform translate-x-full transition-[transform,opacity] duration-500 ease-linear"
+            class="col-start-2 col-span-4 text-teaser opacity-0 transform translate-x-full transition-[transform,opacity] duration-500 ease-linear pt-s3 pb-s4"
           >
             Das digitalwerk saar sorgt in der Region SarLorLux als eine digitale
             kommunale Solidargemeinschaft für smarte (Energie-)Versorgung.<br />Wir
             sind für jeden ofen, der mitmachen möchte.
           </div>
-          <div class="col-start-2 col-span-4">
+          <div class="flex justify-center col-start-2 col-span-4 pb-s10">
             <button
-              class="bg-white rounded-3xl font-bold whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300 m-0.5 p-0.5"
+              class="flex justify-center items-center px-4 pt-bnt pb-bnb bg-white rounded-3xl font-bold text-base whitespace-nowrap hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-pink-300"
             >
               <span
-                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent px-2"
+                class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent"
               >
                 Kontakt
               </span>
@@ -205,17 +434,17 @@
           </div>
         </div>
         <div
-          class="w-11/12 sm:container items-center bg-white p-2 sm:p-8 rounded-3xl sm:rounded-4xl lg:rounded-5xl"
+          class="container md:px-sm items-center bg-white rounded-4xl md:rounded-5xl pb-s10"
         >
-          <div class="col-start-1 col-span-12 text-black p-0.5"></div>
+          <div class="col-start-1 col-span-12 text-black"></div>
           <h3
-            class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent font-bold text-h3 font-['PlusJakarta-Bold']"
+            class="bg-gradient-to-r from-yellow-500 to-pink-700 bg-clip-text text-transparent font-bold text-h3 font-['PlusJakarta-Bold'] pt-s5 pb-s4"
           >
             Eine Initiative von
           </h3>
           <div class="grid grid-cols-12 gap-5">
             <div
-              class="col-start-2 col-end-12 grid grid-cols-5 gap-5 items-center"
+              class="col-start-2 col-end-12 grid grid-cols-1 gap-5 md:grid-cols-5 justify-items-center justify-self-center items-center max-w-logomax md:max-w-full"
             >
               <img
                 class="col-span-1"
@@ -247,65 +476,76 @@
         </div>
       </section>
 
-      <div
-        class="footer flex flex-wrap justify-center text-main text-footer py-3"
-      >
+      <div class="footer flex flex-wrap justify-center text-main text-footer">
         <div
-          class="w-11/12 sm:container flex flex-col py-0.5 lg:flex-row justify-between"
+          class="container px-ss md:px-sm flex flex-col lg:flex-row justify-between"
         >
-          <div class="flex flex-wrap justify-between sm:flex-nowrap">
-            <div class="flex flex-row h-12 my-3">
+          <div
+            class="w-full flex flex-wrap flex-col content-center ss:flex-row lg:justify-between lg:flex-nowrap"
+          >
+            <div class="flex flex-row flex-1 h-12 my-s4">
               <span class="w-1 h-full bg-main rounded-md"></span>
               <div class="flex flex-col pl-3 pr-8">
-                <span class="cursor-pointer hover:text-main_hover">Home</span>
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
+                  >Home</span
+                >
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >Leistungen</span
                 >
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >Mission</span
                 >
               </div>
             </div>
-            <div class="flex flex-row h-12 my-3">
+            <div class="flex flex-row flex-1 h-12 my-s4">
               <span class="w-1 h-full bg-main rounded-md"></span>
               <div class="flex flex-col pl-3 pr-8">
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >Partner</span
                 >
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >Kontakt</span
                 >
               </div>
             </div>
-            <div class="flex flex-row h-12 my-3">
+            <div class="flex flex-row flex-1 h-12 my-s4">
               <span class="w-1 h-full bg-main rounded-md"></span>
               <div class="flex flex-col pl-3 pr-8">
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >Impressum</span
                 >
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >Datenschutz</span
                 >
               </div>
             </div>
-          </div>
-          <div class="flex flex-wrap justify-between sm:flex-nowrap">
-            <div class="flex flex-row h-12 my-3">
+            <div class="hidden md:flex flex-row flex-auto h-12 my-s4"></div>
+            <div class="flex flex-row flex-1 h-12 my-s4">
               <span class="w-1 h-full bg-main rounded-md"></span>
               <div class="flex flex-col pl-3 pr-8">
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >digitalwerk saar GmbH</span
                 >
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >Holtzendorferstrasse 12</span
                 >
-                <span class="cursor-pointer hover:text-main_hover"
+                <span
+                  class="whitespace-nowrap cursor-pointer hover:text-main_hover"
                   >66740 Saarlouis</span
                 >
               </div>
             </div>
             <img
-              class="h-12 my-3"
+              class="flex-1 h-12 my-s4"
               src="./assets/dws_logo_footer__150x68px.svg"
               alt="dws_logo_footer"
             />
@@ -314,6 +554,15 @@
       </div>
     </footer>
     <script>
+      const flag = document.querySelector(".peer");
+      flag.addEventListener("input", function () {
+        if (flag.checked) {
+          document.documentElement.setAttribute("overflow-y", "hidden");
+        } else {
+          document.documentElement.setAttribute("overflow-y", "hidden");
+        }
+      });
+
       document.addEventListener("DOMContentLoaded", function () {
         const headlineElements = document.querySelectorAll("#slide-in-left");
         const textElements = document.querySelectorAll("#slide-in-right");
@@ -332,10 +581,13 @@
         function checkSlide() {
           headlineElements.forEach((element) => {
             const slideInAt =
-              window.scrollY + window.innerHeight - element.clientHeight;
+              document.body.scrollTop +
+              window.innerHeight -
+              element.clientHeight;
             const isHalfShown = slideInAt > element.offsetTop;
             const isNotScrolledPast =
-              window.scrollY < element.offsetTop + element.clientHeight;
+              document.body.scrollTop <
+              element.offsetTop + element.clientHeight;
 
             if (isHalfShown && isNotScrolledPast) {
               changeClass("add", element, [
@@ -354,10 +606,13 @@
 
           textElements.forEach((element) => {
             const slideInAt =
-              window.scrollY + window.innerHeight - element.clientHeight;
+              document.body.scrollTop +
+              window.innerHeight -
+              element.clientHeight;
             const isHalfShown = slideInAt > element.offsetTop;
             const isNotScrolledPast =
-              window.scrollY < element.offsetTop + element.clientHeight;
+              document.body.scrollTop <
+              element.offsetTop + element.clientHeight;
 
             if (isHalfShown && isNotScrolledPast) {
               changeClass("add", element, [
@@ -374,9 +629,8 @@
             }
           });
         }
-
-        window.addEventListener("scroll", checkSlide);
-        checkSlide(); // Initial check
+        document.body.addEventListener("scroll", checkSlide);
+        checkSlide();
       });
     </script>
   </body>
